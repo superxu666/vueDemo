@@ -18,5 +18,8 @@
   "homepage": "https://github.com/superxu666/vueDemo#readme",
   "dependencies": {
     "vue": "^2.5.9"
+  },
+  "devDependencies": {
+    "vue-router": "^3.0.1"
   }
 }

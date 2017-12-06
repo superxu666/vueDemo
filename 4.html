@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <div v-runoob="{color: 'green', text: '菜鸟教程'}"></div>
+  </div>
+
+  <script src="./vue.min.js"></script>
+  <script>
+    
+    Vue.directive('runoob', function (el, binding) {
+      el.innerHTML = binding.value.text
+      el.style.color = binding.value.color
+    })
+
+    new Vue({
+      el: '#app'
+    })
+  </script>
+  
+</body>
+</html>
