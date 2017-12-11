@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <button type="button" class="clickBox">1</button>
+  <button type="button" class="clickBox">2</button>
+  <button type="button" class="clickBox">3</button>
+  <button type="button" class="clickBox">4</button>
+  <button type="button" class="clickBox">5</button>
+
+  <script>
+    var clickBoxs = document.querySelectorAll('.clickBox')
+    var len = clickBoxs.length
+    console.log(len)
+    for (var i = 0; i < len; i++) {
+      clickBoxs[i].onclick = clickFnc(i)
+    }
+
+    function clickFnc(n) {
+      var onclick = function (e) {
+        console.log(n)
+      }
+      return onclick
+    }
+
+  </script>
+</body>
+</html>
