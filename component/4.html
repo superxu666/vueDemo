@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <todo-item v-bind="todo"></todo-item>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+
+
+
+  Vue.component('todo-item', {
+    props: ['text','isComplete'],
+    template: '<p>{{nor}},,,,{{isComplete}}</p>',
+    computed: {
+      nor: function () {
+        return this.text.split('').reverse().join('')
+      }
+    }
+  })
+
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      todo: {
+        text: 'helloffafe',
+        isComplete: 'sdfadfadf'
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

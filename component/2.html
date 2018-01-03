@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<table>
+  <tr is="my-row"></tr>
+  <tr is="my-row"></tr>
+  <tr is="my-row"></tr>
+</table>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+
+  var data = {message: 0}
+
+  Vue.component('my-row', {
+    template: '<tr><button @click="message+=1">click</button>{{message}}</tr>',
+    data: function () {
+      return {
+        message: 0
+      }
+    }
+  })
+
+  var vm = new Vue({
+    el: '#app'
+  })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <button type="button" v-on:click="greet">Greet</button>
+  <button v-on:click="heihei($event)">heiheiehiehei</button>
+  <button @click.once="heihei">123123</button>
+
+  <input @keyup.enter="heihei"></input>
+  <input @keyup.alt.67="clear(this)">
+  <input type="text" @click.right="no">
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+  var example2 = new Vue({
+    el: '#app',
+    data: {
+      name: 'vue.js'
+    },
+    methods: {
+      greet: function (event) {
+        alert('Hello' + this.name + '!')
+        if (event) {
+          alert(event.target.tagName)
+          console.log(event)
+        }
+      },
+      heihei: function (event) {
+        console.log(event)
+      },
+      clear: function (ev) {
+        console.log(ev)
+        // ev.path[0].value = ''
+      },
+      no: function (ev) {
+        // ev.stopPropagation()
+        ev.preventDefault()
+      }
+    }
+  })
+  console.log(example2)
+</script>
+
+</body>
+</html>

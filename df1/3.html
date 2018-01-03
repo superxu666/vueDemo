@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <div v-if="Math.random() > 0.5">
+    you see me1
+  </div>
+  <div v-else>
+    you see me2
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+  var vm = new Vue({
+    el: '#app'
+  })
+</script>
+</body>
+</html>

@@ -9,15 +9,40 @@
 
   <div id="app">
   {{to}}
+  <input type="text" v-model="message">
+  <p>message: {{message}}</p>
+  <p>computed reversed message: {{reverMessage}}</p>
   </div>
   <script src="./vue.min.js"></script>
   <script>
-    new Vue({
+  Vue.prototype.htpp = '123'
+    var vm = new Vue({
       el: '#app',
       data: {
-        to: 'to'
+        to: 'to',
+        ded: {
+          to: 'to222'
+        },
+        message: 'hello'
+      },
+      mounted: function () {
+        console.log(this.__proto)
+      },
+      computed: {
+        reverMessage: function () {
+          return Date.now()
+        }
+      },
+      watch: {
+        message: function (curVal, oldVal) {
+          console.log('当前值' + curVal)
+          console.log('旧值' + oldVal)
+        }
       }
     })
+
+    console.log(vm.$data)
+    console.log(vm)
 
   </script>
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+
+  <current-t></current-t>
+  <current-p></current-p>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+
+  var hub = new Vue()
+Vue.component('current-t', {
+  template: '<input type="text" :value="ms">',
+  created: function () {
+    hub.$on('change', function (id) {
+      this.msg = id
+      console.log(id,45345, this.msg, this.ms)
+    })
+  },
+  data: function () {
+    return {
+      ms: this.msg
+    }
+  }
+})
+
+Vue.component('current-p', {
+  template: '<input type="button" value="click" v-on:click="eve">',
+  methods: {
+    eve: function () {
+      hub.$emit('change', 'heh23123213e')
+      console.log(123)
+    }
+  }
+})
+
+  var vm = new Vue({
+    el: '#app',
+    methods: {
+
+    }
+  })
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <ul v-if="todos.length">
+    <li v-for="todo in todos">{{todo.msg}}</li>
+  </ul>
+  <p v-else>no todos</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      todos: [
+
+      ]
+    }
+  })
+</script>
+
+</body>
+</html>

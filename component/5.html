@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<todo-item :str="yui"></todo-item>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+
+<script>
+
+Vue.component('todo-item', {
+  props: {
+    str: Number
+  },
+  template: '<p>{{str}}</p>'
+})
+
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      yui: 'sdfdfd'
+    }
+  })
+
+</script>
+
+</body>
+</html>

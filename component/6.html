@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <p>{{total}}</p>
+  <button-con v-on:increment="incrementTotal">自定义事件</button-con>
+  <button @click="emitCustomEvent">点基触发自定义事件</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+
+
+  Vue.component('button-con', {
+    template: '<input type="button" v-on:click="ck" value="不不不不不不不">',
+    methods: {
+      ck: function () {
+        console.log(this)
+        this.$emit('increment')
+      }
+    }
+  })
+
+
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      total: 0
+    },
+    methods: {
+      incrementTotal: function () {
+        this.total += 1
+      },
+      emitCustomEvent: function () {
+        console.log(this)
+      }
+    }
+  })
+
+
+</script>
+
+</body>
+</html>

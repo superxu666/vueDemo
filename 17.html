@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    *{padding: 0;margin: 0;}
+    li{
+      list-style: none;float: left;width: 50px;height: 50px;line-height: 50px;margin-right: 20px;border: 1px solid red;text-align: center;position: relative;
+      left: 0; transition:all 0.25s ease-in;
+    }
+
+  </style>
+</head>
+<body>
+
+<ul id="ul">
+</ul>
+
+<script>
+
+
+  window.onload = function () {
+    var ul = document.getElementById('ul')
+    var str = ''
+    for (var i=0; i<10; i++) {
+      str += '<li>'+ i +'</li>'
+    }
+    ul.innerHTML = str;
+
+    var li = ul.getElementsByTagName('li')
+    var len = li.length
+    for (var i=0; i<len; i++) {
+      li[i].onmouseover = function () {
+        this.style.left = '10px'
+      }
+      li[i].onmouseout = function () {
+        this.style.left = '0'
+      }
+    }
+  }
+
+</script>
+</body>
+</html>
