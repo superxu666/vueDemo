@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/vant/lib/vant-css/index.css">
+  <style>
+    #img{
+      width: 100px;
+      vertical-align: middle;
+    }
+    .sss{
+      width: 80px;
+      height: 80px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+
+    <div v-for="item in file">
+      <img id="img" :src="item" :alt="item">
+      {{item.content}}
+    </div>
+    <!-- <img v-if="multiple" id="img" :src="file" alt="123"> -->
+    
+    <van-uploader :after-read="onRead" multiple>
+      <!-- <van-icon name="photograph" /> -->
+      <div class="sss"></div>
+    </van-uploader>
+
+    <!-- <input type="file" multiple> -->
+    
+  </div>
+
+  <script src="vue.js"></script>
+  <!-- 引入组件 -->
+  <script src="https://unpkg.com/vant/lib/vant.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      methods: {
+        onRead: function(file) {
+
+          if(file.length>1) {
+
+            multiple = false
+            for (var i in file) {
+              this.file.push(file[i].content)
+            }
+            
+          console.log(this.fileData)
+          } else {
+            multiple = true
+            this.file.push(file.content)
+          }
+        }
+      },
+      data: {
+        file: []
+      }
+    })  
+  </script>
+  
+</body>
+</html>

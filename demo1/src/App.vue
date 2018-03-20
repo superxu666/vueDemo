@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
+    <router-view v-wechat-title="$route.meta.title"/>
   </div>
 </template>
 
@@ -20,4 +20,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
